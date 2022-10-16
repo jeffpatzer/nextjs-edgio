@@ -44,6 +44,6 @@ jobs:
         run: |
           npm run layer0:deploy -- ${{'--branch=$BRANCH_NAME' || ''}} --token=$deploy_token  \
           ${{github.event_name == 'push' && '--environment=default' || ''}} \
-          ${{github.event_name == 'pull_request' && '--environment=default' || ''}}
+          ${{github.event_name == 'pull_request' && '--environment=staging' || ''}}
         env:
           deploy_token: ${{secrets.LAYER0_DEPLOY_TOKEN}}
