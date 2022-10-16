@@ -13,4 +13,7 @@ export default new Router()
   .match('/service-worker.js', ({ serviceWorker }) => {
     return serviceWorker('.next/static/service-worker.js')
   })
+  .match('/api/:path*', ({ proxy }) => {
+    proxy('api', {path: '/:path'})
+  })
   .use(nextRoutes) // automatically adds routes for all files under /pages
