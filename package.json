@@ -1,19 +1,28 @@
 {
-  "name": "nextjs-edgio-apac2022",
-  "version": "0.1.0",
-  "private": true,
   "scripts": {
+    "layer0:dev": "layer0 dev",
+    "layer0:build": "layer0 build",
+    "layer0:deploy": "layer0 deploy",
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
+  "name": "nextjs-edgio-apac2022",
+  "version": "0.1.0",
+  "private": true,
   "dependencies": {
     "next": "12.3.1",
     "react": "18.2.0",
     "react-dom": "18.2.0"
   },
   "devDependencies": {
+    "@layer0/cli": "^4.19.2",
+    "@layer0/core": "^4.19.2",
+    "@layer0/devtools": "^4.19.2",
+    "@layer0/next": "^4.19.2",
+    "@layer0/prefetch": "^4.19.2",
+    "@layer0/react": "^4.19.2",
     "eslint": "8.25.0",
     "eslint-config-next": "12.3.1"
   }
