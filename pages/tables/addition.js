@@ -37,12 +37,12 @@ function AdditionTable({ data }) {
           <Tbody>
             {data.map((m, i) => {
               return (
-                <Tr key={m}>
+                <Tr key={i}>
                   <Th borderRight="1px solid var(--chakra-colors-blackAlpha-100)">
                     {i}
                   </Th>
-                  {m.map((n) => (
-                    <Td key={n.result}>{n.result}</Td>
+                  {m.map((n, i) => (
+                    <Td key={`${n.result}__${i}`}>{n.result}</Td>
                   ))}
                 </Tr>
               );

@@ -2,7 +2,7 @@
 // You should commit this file to source control.
 // Learn more about this file at https://docs.layer0.co/guides/layer0_config
 module.exports = {
-  connector: '@layer0/next',
+  connector: "@layer0/next",
 
   // The name of the site in Layer0 to which this app should be deployed.
   // name: 'my-site-name',
@@ -13,15 +13,17 @@ module.exports = {
   backends: {
     api: {
       // The domain name or IP address of the origin server
-      domainOrIp: 'apac-tech-summit-express-backend-default.layer0-limelight.link',
-  
+      domainOrIp:
+        "apac-tech-summit-express-backend-default.layer0-limelight.link",
+
       // When provided, the following value will be sent as the host header when connecting to the origin.
       // If omitted, the host header from the browser will be forwarded to the origin.
-      hostHeader: 'apac-tech-summit-express-backend-default.layer0-limelight.link',
-  
+      hostHeader:
+        "apac-tech-summit-express-backend-default.layer0-limelight.link",
+
       // Uncomment the following line if TLS is not set up properly on the origin domain and you want to ignore TLS errors
       // disableCheckCert: true,
-  
+
       // Overrides the default ports (80 for http and 443 for https) and instead use a specific port
       // when connecting to the origin
       // port: 1337,
@@ -59,4 +61,4 @@ module.exports = {
   // is uploaded during deployment
   //
   // includeNodeModules: true,
-}
+};

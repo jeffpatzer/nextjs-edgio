@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import styles from "../styles/Home.module.css";
 import { Container } from "@chakra-ui/react";
+import Nav from "../components/nav";
 
 const Layout = ({ children }) => {
   return (
@@ -10,6 +11,7 @@ const Layout = ({ children }) => {
         <title>Basic Calculator</title>
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      <Nav />
 
       {children}
 
