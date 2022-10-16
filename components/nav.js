@@ -5,18 +5,18 @@ const Nav = () => {
   return (
     <Center py={5} px={3}>
       <HStack>
-        <Link href="/">
-          <Button colorScheme="gray" variant="outline">
+        <Link href="/" passHref>
+          <Button colorScheme="gray" variant="outline" as="a">
             Calculator
           </Button>
         </Link>
-        <Link href="/tables/addition">
-          <Button colorScheme="gray" variant="outline">
+        <Link href="/tables/addition" passHref>
+          <Button colorScheme="gray" variant="outline" as="a">
             Addition Table
           </Button>
         </Link>
-        <Link href="/tables/multiplication">
-          <Button colorScheme="gray" variant="outline">
+        <Link href="/tables/multiplication" passHref>
+          <Button colorScheme="gray" variant="outline" as="a">
             Multiplication Table
           </Button>
         </Link>
