@@ -18,7 +18,7 @@ module.exports = (phase, config) =>
       layer0SourceMaps: true,
 
       // Set the following to `true` to disable the Layer0 dev tools.
-      disableLayer0DevTools: false,
+      disableLayer0DevTools: true,
 
       ..._preLayer0Export
     })
