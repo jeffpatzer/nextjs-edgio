@@ -35,7 +35,7 @@ function AdditionTable({ data }) {
             </Tr>
           </Thead>
           <Tbody>
-            {data.map((m, i) => {
+            {matrix.map((m, i) => {
               return (
                 <Tr key={i}>
                   <Th borderRight="1px solid var(--chakra-colors-blackAlpha-100)">
@@ -55,25 +55,25 @@ function AdditionTable({ data }) {
 }
 
 // This gets called on every request
-export async function getServerSideProps() {
-  let API_PATH = `https://apac-tech-summit-express-backend-default.layer0-limelight.link/calculate`;
+// export async function getServerSideProps() {
+//   let API_PATH = `https://apac-tech-summit-express-backend-default.layer0-limelight.link/calculate`;
 
-  // A lot of API calls really fast - BAD when those are not cached
-  const res = await Promise.all(
-    await matrix.map(
-      async (n) =>
-        await Promise.all(
-          n.map((m) =>
-            fetch(`${API_PATH}?operation=add&x=${m[0]}&y=${m[1]}`).then((res) =>
-              res.json()
-            )
-          )
-        )
-    )
-  );
+//   // A lot of API calls really fast - BAD when those are not cached
+//   const res = await Promise.all(
+//     await matrix.map(
+//       async (n) =>
+//         await Promise.all(
+//           n.map((m) =>
+//             fetch(`${API_PATH}?operation=add&x=${m[0]}&y=${m[1]}`).then((res) =>
+//               res.json()
+//             )
+//           )
+//         )
+//     )
+//   );
 
-  // Pass data to the page via props
-  return { props: { data: res } };
-}
+//   // Pass data to the page via props
+//   return { props: { data: res } };
+// }
 
 export default AdditionTable;

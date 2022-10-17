@@ -36,29 +36,4 @@ export default new Router()
       // ),
     });
   })
-  .get("/tables/:table", ({ cache }) => {
-    cache({
-      browser: {
-        maxAgeSeconds: 0,
-        serviceWorkerSeconds: ONE_HOUR,
-      },
-      edge: {
-        maxAgeSeconds: ONE_DAY,
-        staleWhileRevalidateSeconds: ONE_HOUR,
-      },
-    });
-  })
-  // Products - getServerSideProps
-  .get("/_next/data/:version/tables/:table.json", ({ cache }) => {
-    cache({
-      browser: {
-        maxAgeSeconds: 0,
-        serviceWorkerSeconds: ONE_DAY,
-      },
-      edge: {
-        maxAgeSeconds: ONE_DAY,
-        staleWhileRevalidateSeconds: ONE_HOUR,
-      },
-    });
-  })
   .use(nextRoutes); // automatically adds routes for all files under /pages
