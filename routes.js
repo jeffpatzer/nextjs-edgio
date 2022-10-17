@@ -17,9 +17,8 @@ export default new Router()
   .match("/service-worker.js", ({ serviceWorker }) => {
     return serviceWorker(".next/static/service-worker.js");
   })
-  .match("/api/:path*", ({ proxy, cache, removeUpstreamResponseHeader }) => {
+  .match("/api/:path*", ({ proxy, cache }) => {
     proxy("api", { path: "/:path" });
-    removeUpstreamResponseHeader("cache-control");
     cache({
       browser: {
         maxAgeSeconds: 0,
@@ -28,31 +27,6 @@ export default new Router()
       edge: {
         maxAgeSeconds: ONE_MINUTE,
         staleWhileRevalidateSeconds: ONE_DAY,
-      },
-    });
-  })
-  .get("/tables/:table", ({ cache }) => {
-    cache({
-      browser: {
-        maxAgeSeconds: 0,
-        serviceWorkerSeconds: ONE_HOUR,
-      },
-      edge: {
-        maxAgeSeconds: ONE_DAY,
-        staleWhileRevalidateSeconds: ONE_HOUR,
-      },
-    });
-  })
-  // Products - getServerSideProps
-  .get("/_next/data/:version/tables/:table.json", ({ cache }) => {
-    cache({
-      browser: {
-        maxAgeSeconds: 0,
-        serviceWorkerSeconds: ONE_DAY,
-      },
-      edge: {
-        maxAgeSeconds: ONE_DAY,
-        staleWhileRevalidateSeconds: ONE_HOUR,
       },
     });
   })
