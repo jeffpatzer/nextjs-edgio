@@ -1,6 +1,6 @@
 // This file was automatically added by layer0 deploy.
 // You should commit this file to source control.
-import { Router } from "@layer0/core/router";
+import { CustomCacheKey, Router } from "@layer0/core/router";
 import { nextRoutes } from "@layer0/next";
 
 // Remove this line to suppress Next's default behavior of removing trailing slashes via a redirect.
@@ -29,6 +29,11 @@ export default new Router()
         maxAgeSeconds: ONE_MINUTE,
         staleWhileRevalidateSeconds: ONE_DAY,
       },
+      // key: new CustomCacheKey().excludeAllQueryParametersExcept(
+      //   "x",
+      //   "y",
+      //   "operator"
+      // ),
     });
   })
   .get("/tables/:table", ({ cache }) => {
