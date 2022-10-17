@@ -17,8 +17,9 @@ export default new Router()
   .match("/service-worker.js", ({ serviceWorker }) => {
     return serviceWorker(".next/static/service-worker.js");
   })
-  .match("/api/:path*", ({ proxy, cache }) => {
+  .match("/api/:path*", ({ proxy, cache, removeUpstreamResponseHeader }) => {
     proxy("api", { path: "/:path" });
+    removeUpstreamResponseHeader("cache-control");
     cache({
       browser: {
         maxAgeSeconds: 0,
