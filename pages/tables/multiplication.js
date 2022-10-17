@@ -13,7 +13,7 @@ import {
 import Layout from "../layout";
 import Head from "next/head";
 
-function MultiplicationTable({ data }) {
+function MultiplicationTable() {
   return (
     <Layout>
       <Head>
@@ -35,7 +35,7 @@ function MultiplicationTable({ data }) {
             </Tr>
           </Thead>
           <Tbody>
-            {data.map((m, i) => {
+            {matrix.map((m, i) => {
               return (
                 <Tr key={i}>
                   <Th borderRight="1px solid var(--chakra-colors-blackAlpha-100)">
@@ -52,28 +52,6 @@ function MultiplicationTable({ data }) {
       </TableContainer>
     </Layout>
   );
-}
-
-// This gets called on every request
-export async function getStaticProps() {
-  let API_PATH = `https://apac-tech-summit-express-backend-default.layer0-limelight.link/calculate`;
-
-  // A lot of API calls really fast - BAD when those are not cached
-  const res = await Promise.all(
-    await matrix.map(
-      async (n) =>
-        await Promise.all(
-          n.map((m) =>
-            fetch(`${API_PATH}?operation=multiply&x=${m[0]}&y=${m[1]}`).then(
-              (res) => res.json()
-            )
-          )
-        )
-    )
-  );
-
-  // Pass data to the page via props
-  return { props: { data: res } };
 }
 
 export default MultiplicationTable;
