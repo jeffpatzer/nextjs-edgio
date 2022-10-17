@@ -9,7 +9,7 @@ nextRoutes.setEnforceTrailingSlash(true);
 
 const ONE_MINUTE = 60;
 const ONE_HOUR = ONE_MINUTE * 60;
-const ONE_DAY = 60 * 60 * 1;
+const ONE_DAY = ONE_HOUR * 24;
 
 export default new Router()
   // Prevent search engines from indexing permalink URLs
@@ -17,12 +17,13 @@ export default new Router()
   .match("/service-worker.js", ({ serviceWorker }) => {
     return serviceWorker(".next/static/service-worker.js");
   })
-  .match("/api/:path*", ({ proxy, cache }) => {
+  .match("/api/:path*", ({ proxy, cache, removeUpstreamResponseHeader }) => {
     proxy("api", { path: "/:path" });
+    removeUpstreamResponseHeader("cache-control");
     cache({
       browser: {
-        maxAgeSeconds: ONE_HOUR,
-        // serviceWorkerSeconds: ONE_DAY
+        maxAgeSeconds: 0,
+        serviceWorkerSeconds: ONE_HOUR,
       },
       edge: {
         maxAgeSeconds: ONE_MINUTE,
@@ -34,11 +35,11 @@ export default new Router()
     cache({
       browser: {
         maxAgeSeconds: 0,
-        serviceWorkerSeconds: ONE_MINUTE * 5,
+        serviceWorkerSeconds: ONE_HOUR,
       },
       edge: {
-        maxAgeSeconds: 60 * 60 * 24,
-        staleWhileRevalidateSeconds: 60 * 60,
+        maxAgeSeconds: ONE_DAY,
+        staleWhileRevalidateSeconds: ONE_HOUR,
       },
     });
   })

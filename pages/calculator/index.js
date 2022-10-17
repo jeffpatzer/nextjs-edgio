@@ -18,8 +18,8 @@ function Calculator() {
   const [result, setResult] = useState({
     result: "--",
   });
-  const [leftValue, setLeftValue] = useState(0);
-  const [rightValue, setRightValue] = useState(0);
+  const [leftValue, setLeftValue] = useState(Math.floor(Math.random() * 20));
+  const [rightValue, setRightValue] = useState(Math.floor(Math.random() * 20));
   const [isLoading, setLoading] = useState(false);
 
   const Operator = () => {
@@ -141,7 +141,7 @@ function Calculator() {
 
       <Box pb={3}>
         <Center
-          w="40px"
+          w="80px"
           h="40px"
           bg="darkslategray"
           color="white"

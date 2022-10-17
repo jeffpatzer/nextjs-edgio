@@ -1,5 +1,6 @@
 import { Button, Center, HStack } from "@chakra-ui/react";
 import Link from "next/link";
+import { Prefetch } from "@layer0/react";
 
 const Nav = () => {
   return (
@@ -11,14 +12,18 @@ const Nav = () => {
           </Button>
         </Link>
         <Link href="/tables/addition" passHref>
-          <Button colorScheme="gray" variant="outline" as="a">
-            Addition Table
-          </Button>
+          <Prefetch url="/tables/addition">
+            <Button colorScheme="gray" variant="outline" as="a">
+              Addition Table
+            </Button>
+          </Prefetch>
         </Link>
         <Link href="/tables/multiplication" passHref>
-          <Button colorScheme="gray" variant="outline" as="a">
-            Multiplication Table
-          </Button>
+          <Prefetch url="/tables/multiplication">
+            <Button colorScheme="gray" variant="outline" as="a">
+              Multiplication Table
+            </Button>
+          </Prefetch>
         </Link>
       </HStack>
     </Center>
