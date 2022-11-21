@@ -1,6 +1,6 @@
 import { Button, Center, HStack } from "@chakra-ui/react";
 import Link from "next/link";
-import { Prefetch } from "@layer0/react";
+import { Prefetch } from "@edgio/react";
 
 const Nav = () => {
   return (

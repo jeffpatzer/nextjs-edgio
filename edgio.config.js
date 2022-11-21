@@ -1,13 +1,13 @@
-// This file was automatically added by layer0 init.
+// This file was automatically added by edgio init.
 // You should commit this file to source control.
-// Learn more about this file at https://docs.layer0.co/guides/layer0_config
+// Learn more about this file at https://docs.edgio.co/guides/edgio_config
 module.exports = {
-  connector: "@layer0/next",
+  connector: "@edgio/next",
 
-  // The name of the site in Layer0 to which this app should be deployed.
+  // The name of the site in Edgio to which this app should be deployed.
   // name: 'my-site-name',
 
-  // The name of the team in Layer0 to which this app should be deployed.
+  // The name of the team in Edgio to which this app should be deployed.
   // team: 'my-team-name',
 
   backends: {
@@ -37,27 +37,27 @@ module.exports = {
   // Defaults to 200, which is the maximum allowed value.
   // prerenderConcurrency: 200,
 
-  // A list of glob patterns identifying which source files should be uploaded when running layer0 deploy --includeSources.
-  // This option is primarily used to share source code with Layer0 support personnel for the purpose of debugging. If omitted,
-  // layer0 deploy --includeSources will result in all files which are not gitignored being uploaded to Layer0.
+  // A list of glob patterns identifying which source files should be uploaded when running edgio deploy --includeSources.
+  // This option is primarily used to share source code with Edgio support personnel for the purpose of debugging. If omitted,
+  // edgio deploy --includeSources will result in all files which are not gitignored being uploaded to Edgio.
   //
   // sources : [
   //   '**/*', // include all files
   //   '!(**/secrets/**/*)', // except everything in the secrets directory
   // ],
 
-  // Allows you to include additional resources in the bundle that is deployed to Layer0’s serverless JS workers.
+  // Allows you to include additional resources in the bundle that is deployed to Edgio’s serverless JS workers.
   // Keys are globs, value can be a boolean or string. This is typically used to ensure that resources
   // that need to be dynamically required at runtime such as build manifests for server-side rendering
   // or other config files are present in the cloud.
   //
   // includeFiles: {
   //   'lang/**/*': true, // Just includes the specified files
-  //   'content/**/*': 'another/dir/in/layer0/lambda', // Copies the files into specific directory within Layer0 build
+  //   'content/**/*': 'another/dir/in/edgio/lambda', // Copies the files into specific directory within Edgio build
   // },
 
-  // Set to true to include all packages listed in the dependencies property of package.json when deploying to Layer0.
-  // This option generally isn't needed as Layer0 automatically includes all modules imported by your code in the bundle that
+  // Set to true to include all packages listed in the dependencies property of package.json when deploying to Edgio.
+  // This option generally isn't needed as Edgio automatically includes all modules imported by your code in the bundle that
   // is uploaded during deployment
   //
   // includeNodeModules: true,

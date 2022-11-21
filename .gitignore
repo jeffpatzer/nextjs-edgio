@@ -35,4 +35,4 @@ yarn-error.log*
 *.tsbuildinfo
 next-env.d.ts
 # Layer0 generated build directory
-.layer0
+.edgio
