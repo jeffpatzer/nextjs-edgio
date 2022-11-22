@@ -17,7 +17,7 @@ export default new Router()
   .match("/service-worker.js", ({ serviceWorker }) => {
     return serviceWorker(".next/static/service-worker.js");
   })
-  .match("/api/:path*", ({ proxy }) => {
+  .match("/api/:path*", ({ proxy, cache, removeUpstreamResponseHeader }) => {
     proxy("api", { path: "/:path" });
     removeUpstreamResponseHeader("cache-control");
     cache({
@@ -28,12 +28,7 @@ export default new Router()
       edge: {
         maxAgeSeconds: ONE_MINUTE,
         staleWhileRevalidateSeconds: ONE_DAY,
-      },
-      // key: new CustomCacheKey().excludeAllQueryParametersExcept(
-      //   "x",
-      //   "y",
-      //   "operator"
-      // ),
+      }
     });
   })
   .use(nextRoutes); // automatically adds routes for all files under /pages
